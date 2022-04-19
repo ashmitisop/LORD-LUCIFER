@@ -908,15 +908,15 @@ async def _(e):
 @dav.on(events.NewMessage(incoming=True, pattern=r"\.pleave"))
 @raj.on(events.NewMessage(incoming=True, pattern=r"\.pleave"))
 @put.on(events.NewMessage(incoming=True, pattern=r"\.pleave"))
-
+             
 async def _(e):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗟𝗲𝗮𝘃𝗲\n\nCommand:\n\n.leave <Channel or Chat ID>"
     if e.sender_id in SMEX_USERS:
-        lucifer = ("".leave(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-        if len(e.text) == 7:
+        lucifer = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        if len(e.text) > 7:
             bc = lucifer[0]
             bc = int(bc)
-            text = "𝐉𝐀𝐀 𝐌𝐀𝐃𝐀𝐑𝐗𝐇𝐎𝐃 𝐗𝐇𝐎𝐑 𝐃𝐈𝐘𝐀💋"
+            text = "Chlta Hu Bisi"
             event = await e.reply(text, parse_mode=None, link_preview=None )
             try:
                 await event.client(LeaveChannelRequest(bc))
@@ -925,9 +925,7 @@ async def _(e):
                 await event.edit(str(e))   
         else:
             await e.reply(usage, parse_mode=None, link_preview=None )
-            
-                
-        
+                    
         
 @idk.on(events.NewMessage(incoming=True, pattern=r"\.spam"))
 @ydk.on(events.NewMessage(incoming=True, pattern=r"\.spam"))
